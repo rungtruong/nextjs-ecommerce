@@ -1,16 +1,23 @@
 import '../styles/global.css';
 
+import { SessionProvider } from 'next-auth/react';
+
 import { EmptyLayout } from '../components';
 import type { AppPropsWithLayout } from '../models/common';
 
-const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+const App = ({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) => {
   const Layout = Component.Layout ?? EmptyLayout;
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <SessionProvider session={session}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 };
 
-export default MyApp;
+export default App;

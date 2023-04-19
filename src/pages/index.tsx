@@ -1,18 +1,24 @@
+import { signOut, useSession } from 'next-auth/react';
+
 import { MetaTag } from '@/components';
-import { MainLayout } from '@/components/layout/main';
+import LoginPage from '@/components/common/login-page';
 
 import type { NextPageWithLayout } from '../models/common';
 import { AppConfig } from '../utils/app-config';
 
 const Index: NextPageWithLayout = () => {
-  return (
-    <div>
-      <MetaTag title={AppConfig.title} description={AppConfig.description} />
-      <h1> FT TEST</h1>
-    </div>
-  );
-};
+  const { data: session } = useSession();
 
-Index.Layout = MainLayout;
+  if (session) {
+    return (
+      <>
+        <MetaTag title={AppConfig.title} description={AppConfig.description} />
+        Signed in as {session.user?.email} <br />
+        <button onClick={() => signOut()}>Sign out</button>
+      </>
+    );
+  }
+  return <LoginPage />;
+};
 
 export default Index;
