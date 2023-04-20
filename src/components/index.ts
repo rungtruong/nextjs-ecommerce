@@ -1,4 +1,4 @@
 export * from './common/meta-tag';
-export * from './layout/admin';
-export * from './layout/empty';
-export * from './layout/main';
+export * from './layout/admin-layout';
+export * from './layout/empty-layout';
+export * from './layout/main-layout';

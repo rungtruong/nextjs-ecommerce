@@ -1,4 +1,4 @@
-import type { LayoutProps } from '../../models';
+import type { LayoutProps } from '@/models';
 
 function EmptyLayout(props: LayoutProps) {
   return <div>{props.children}</div>;
