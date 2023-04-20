@@ -1,7 +1,16 @@
-import type { LayoutProps } from '../../models/common';
+import { useSession } from 'next-auth/react';
+import React from 'react';
+
+import LoginPage from '@/components/common/login-page';
+import type { LayoutProps } from '@/models';
 
 function AdminLayout(props: LayoutProps) {
-  return <div>{props.children}</div>;
+  const { data: session } = useSession();
+
+  if (session) {
+    return <>{props.children}</>;
+  }
+  return <LoginPage />;
 }
 
 export { AdminLayout };
