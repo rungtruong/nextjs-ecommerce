@@ -1,6 +1,5 @@
 import { MainLayout, MetaTag } from '@/components';
-
-import type { NextPageWithLayout } from '../models/common';
+import type { NextPageWithLayout } from '@/models';
 
 const About: NextPageWithLayout = () => (
   <div>

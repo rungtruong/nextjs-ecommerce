@@ -1,8 +1,7 @@
 import { signIn } from 'next-auth/react';
 
 import { EmptyLayout } from '@/components';
-
-import type { NextPageWithLayout } from '../../models/common';
+import type { NextPageWithLayout } from '@/models';
 
 const LoginPage: NextPageWithLayout = () => {
   return (
@@ -26,11 +25,7 @@ const LoginPage: NextPageWithLayout = () => {
                 <button
                   className="group h-12 rounded-full border-2 border-gray-300 px-6 transition duration-300 
                    hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
-                  onClick={() =>
-                    signIn('google', {
-                      redirect: false,
-                    })
-                  }
+                  onClick={() => signIn('google')}
                 >
                   <div className="relative flex items-center justify-center space-x-4">
                     <img

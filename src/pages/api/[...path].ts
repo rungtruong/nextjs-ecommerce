@@ -16,10 +16,7 @@ const option = {
   selfHandleResponse: false,
 };
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<any>
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return new Promise<void>((resolve) => {
     const cookies = new Cookies(req, res, {
       secure: process.env.NODE_ENV !== 'development',

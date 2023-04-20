@@ -2,8 +2,8 @@ import '../styles/global.css';
 
 import { SessionProvider } from 'next-auth/react';
 
-import { EmptyLayout } from '../components';
-import type { AppPropsWithLayout } from '../models/common';
+import { EmptyLayout } from '@/components';
+import type { AppPropsWithLayout } from '@/models';
 
 const App = ({
   Component,

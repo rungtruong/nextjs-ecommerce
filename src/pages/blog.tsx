@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { MainLayout, MetaTag } from '@/components';
+import type { NextPageWithLayout } from '@/models';
 
 import { axiosClient } from '../core';
-import type { NextPageWithLayout } from '../models/common';
 
 const Blog: NextPageWithLayout = () => {
   const [posts, setPosts] = useState([]);
