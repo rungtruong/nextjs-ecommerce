@@ -2,9 +2,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { MainLayout, MetaTag } from '@/components';
+import axiosClient from '@/lib/axios-client';
 import type { NextPageWithLayout } from '@/models';
-
-import { axiosClient } from '../core';
 
 const Blog: NextPageWithLayout = () => {
   const [posts, setPosts] = useState([]);
@@ -13,12 +12,12 @@ const Blog: NextPageWithLayout = () => {
     handlePostList();
   }, []);
 
-  const handlePostList: () => Promise<void> = async () => {
+  const handlePostList = async () => {
     try {
       const response: any = await axiosClient.get('/posts');
       setPosts(response);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

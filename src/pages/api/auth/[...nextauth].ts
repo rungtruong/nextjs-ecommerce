@@ -2,6 +2,7 @@ import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import NextAuth from 'next-auth';
 import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
+import * as process from 'process';
 
 import clientPromise from '@/lib/mongodb';
 
@@ -21,4 +22,5 @@ export default NextAuth({
     }),
   ],
   adapter: MongoDBAdapter(clientPromise, { databaseName: 'next-ecommerce-db' }),
+  secret: process.env.NEXTAUTH_URL,
 });
